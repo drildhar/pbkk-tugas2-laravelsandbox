@@ -9,7 +9,7 @@
          | Templat URL dibangun dari helper route() agar formulir tetap bebas
          | hardcoded URL. Placeholder diganti di sisi klien sebelum submit.
          */
-        $urlTemplate = route('akademik.hitung-ipk', ['ip1' => '__IP1__', 'ip2' => '__IP2__']);
+        $urlTemplate = route('akademik.hitung-ipk', ['ipk1' => '__IPK1__', 'ipk2' => '__IPK2__']);
 
         $toneStyle = [
             'emerald' => 'border-emerald-200 bg-emerald-50 text-emerald-800',
@@ -35,7 +35,7 @@
         <div class="mt-6 grid gap-3 sm:grid-cols-3">
             <div class="rounded-xl bg-white/10 p-4 ring-1 ring-inset ring-white/20">
                 <p class="text-[11px] font-bold uppercase tracking-widest text-blue-200">Pola Rute</p>
-                <p class="mt-1 font-mono text-xs font-bold text-white">/hitung-ipk/{ip1}/{ip2}</p>
+                <p class="mt-1 font-mono text-xs font-bold text-white">/hitung-ipk/{ipk1}/{ipk2}</p>
             </div>
             <div class="rounded-xl bg-white/10 p-4 ring-1 ring-inset ring-white/20">
                 <p class="text-[11px] font-bold uppercase tracking-widest text-blue-200">Nama Rute</p>
@@ -78,17 +78,17 @@
 
             <form id="formIpk" method="GET" action="{{ $urlTemplate }}" class="mt-5 space-y-4">
                 <div>
-                    <label for="ip1" class="block text-sm font-semibold text-slate-700">IP Semester 1</label>
-                    <input id="ip1" name="ip1" type="text" inputmode="decimal" autocomplete="off"
-                           value="{{ old('ip1', $input['ip1'] ?? '') }}"
+                    <label for="ipk1" class="block text-sm font-semibold text-slate-700">IP Semester 1</label>
+                    <input id="ipk1" name="ipk1" type="text" inputmode="decimal" autocomplete="off"
+                           value="{{ old('ipk1', $input['ipk1'] ?? '') }}"
                            placeholder="contoh: 3.75"
                            class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-2.5 font-mono text-sm text-slate-800 shadow-sm outline-none transition focus:border-[#14539a] focus:ring-2 focus:ring-[#14539a]/20">
                 </div>
 
                 <div>
-                    <label for="ip2" class="block text-sm font-semibold text-slate-700">IP Semester 2</label>
-                    <input id="ip2" name="ip2" type="text" inputmode="decimal" autocomplete="off"
-                           value="{{ old('ip2', $input['ip2'] ?? '') }}"
+                    <label for="ipk2" class="block text-sm font-semibold text-slate-700">IP Semester 2</label>
+                    <input id="ipk2" name="ipk2" type="text" inputmode="decimal" autocomplete="off"
+                           value="{{ old('ipk2', $input['ipk2'] ?? '') }}"
                            placeholder="contoh: 3.60"
                            class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-2.5 font-mono text-sm text-slate-800 shadow-sm outline-none transition focus:border-[#14539a] focus:ring-2 focus:ring-[#14539a]/20">
                 </div>
@@ -122,7 +122,7 @@
                     <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
                         <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Total Bobot IP</p>
                         <p class="mt-2 font-mono text-2xl font-extrabold text-[#0a2c5e]">{{ number_format($hasil['totalBobot'], 2) }}</p>
-                        <p class="mt-1 font-mono text-[11px] text-slate-500">{{ number_format($hasil['ip1'], 2) }} + {{ number_format($hasil['ip2'], 2) }}</p>
+                        <p class="mt-1 font-mono text-[11px] text-slate-500">{{ number_format($hasil['ipk1'], 2) }} + {{ number_format($hasil['ipk2'], 2) }}</p>
                     </div>
                     <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
                         <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Nilai Rata-rata (IPK)</p>
@@ -145,8 +145,8 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100">
-                            <tr><td class="px-4 py-3 text-slate-600">IP Semester 1</td><td class="px-4 py-3 font-mono font-semibold">{{ number_format($hasil['ip1'], 2) }}</td></tr>
-                            <tr><td class="px-4 py-3 text-slate-600">IP Semester 2</td><td class="px-4 py-3 font-mono font-semibold">{{ number_format($hasil['ip2'], 2) }}</td></tr>
+                            <tr><td class="px-4 py-3 text-slate-600">IP Semester 1</td><td class="px-4 py-3 font-mono font-semibold">{{ number_format($hasil['ipk1'], 2) }}</td></tr>
+                            <tr><td class="px-4 py-3 text-slate-600">IP Semester 2</td><td class="px-4 py-3 font-mono font-semibold">{{ number_format($hasil['ipk2'], 2) }}</td></tr>
                             <tr><td class="px-4 py-3 text-slate-600">Total Bobot IP</td><td class="px-4 py-3 font-mono font-semibold">{{ number_format($hasil['totalBobot'], 2) }}</td></tr>
                             <tr class="bg-slate-50"><td class="px-4 py-3 font-bold text-slate-700">IPK Sementara</td><td class="px-4 py-3 font-mono font-extrabold text-[#0a2c5e]">{{ number_format($hasil['ipk'], 2) }}</td></tr>
                         </tbody>
@@ -158,27 +158,27 @@
             <div class="mt-6 border-t border-slate-100 pt-5">
                 <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Contoh Uji Cepat</p>
                 <div class="mt-3 flex flex-wrap gap-2">
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                        class="rounded-lg bg-emerald-50 px-3 py-1.5 font-mono text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-200 transition hover:bg-emerald-100">
                         3.75 / 3.60
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.20', 'ip2' => '2.90']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.20', 'ipk2' => '2.90']) }}"
                        class="rounded-lg bg-sky-50 px-3 py-1.5 font-mono text-xs font-semibold text-sky-700 ring-1 ring-inset ring-sky-200 transition hover:bg-sky-100">
                         3.20 / 2.90
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '2.50', 'ip2' => '2.40']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '2.50', 'ipk2' => '2.40']) }}"
                        class="rounded-lg bg-amber-50 px-3 py-1.5 font-mono text-xs font-semibold text-amber-700 ring-1 ring-inset ring-amber-200 transition hover:bg-amber-100">
                         2.50 / 2.40
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '4.50', 'ip2' => '3.20']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '4.50', 'ipk2' => '3.20']) }}"
                        class="rounded-lg bg-rose-50 px-3 py-1.5 font-mono text-xs font-semibold text-rose-700 ring-1 ring-inset ring-rose-200 transition hover:bg-rose-100">
                         4.50 / 3.20 (di luar rentang)
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => 'abc', 'ip2' => '3.20']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => 'abc', 'ipk2' => '3.20']) }}"
                        class="rounded-lg bg-rose-50 px-3 py-1.5 font-mono text-xs font-semibold text-rose-700 ring-1 ring-inset ring-rose-200 transition hover:bg-rose-100">
                         abc / 3.20 (non-numerik)
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '-1', 'ip2' => '2.50']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '-1', 'ipk2' => '2.50']) }}"
                        class="rounded-lg bg-rose-50 px-3 py-1.5 font-mono text-xs font-semibold text-rose-700 ring-1 ring-inset ring-rose-200 transition hover:bg-rose-100">
                         -1 / 2.50 (negatif)
                     </a>
@@ -211,11 +211,11 @@
         }
 
         form.addEventListener('submit', function (event) {
-            var ip1 = encodeURIComponent(document.getElementById('ip1').value.trim());
-            var ip2 = encodeURIComponent(document.getElementById('ip2').value.trim());
+            var ipk1 = encodeURIComponent(document.getElementById('ipk1').value.trim());
+            var ipk2 = encodeURIComponent(document.getElementById('ipk2').value.trim());
 
             event.preventDefault();
-            window.location.href = templat.replace('__IP1__', ip1).replace('__IP2__', ip2);
+            window.location.href = templat.replace('__IPK1__', ipk1).replace('__IPK2__', ipk2);
         });
     })();
 </script>

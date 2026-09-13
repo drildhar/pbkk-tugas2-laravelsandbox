@@ -115,7 +115,7 @@
                class="rounded-xl bg-[#0a2c5e] px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#14539a]">
                 Ringkasan Akademik
             </a>
-            <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+            <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                class="rounded-xl bg-[#f2a900] px-5 py-2.5 text-sm font-bold text-[#3a2600] shadow-sm transition hover:bg-[#ffc23d]">
                 Kalkulator IPK
             </a>

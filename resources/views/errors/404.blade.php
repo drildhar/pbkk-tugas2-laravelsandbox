@@ -47,7 +47,7 @@
                     <span>Ide Agentic AI</span>
                     <span class="font-mono text-[11px] text-slate-400">agent.ide</span>
                 </a>
-                <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+                <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                    class="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#14539a]/40 hover:bg-slate-50">
                     <span>Kalkulator IPK</span>
                     <span class="font-mono text-[11px] text-slate-400">akademik.hitung-ipk</span>

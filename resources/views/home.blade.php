@@ -37,7 +37,7 @@
                        class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/30 transition hover:bg-white/20">
                         Eksplorasi Ide Agentic AI
                     </a>
-                    <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+                    <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                        class="inline-flex items-center gap-2 rounded-xl bg-[#f2a900] px-5 py-2.5 text-sm font-bold text-[#3a2600] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#ffc23d]">
                         Hitung IPK Sekarang
                     </a>
@@ -117,9 +117,9 @@
                 <p class="mt-1 text-sm text-slate-500">Parameter opsional dengan fallback <em>General Assistant Agent</em>.</p>
             </a>
 
-            <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}" class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#14539a]/40 hover:shadow-lg">
+            <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}" class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#14539a]/40 hover:shadow-lg">
                 <div class="flex items-center justify-between">
-                    <span class="rounded-lg bg-slate-100 px-2 py-1 font-mono text-xs font-bold text-slate-600">GET /hitung-ipk/{ip1}/{ip2}</span>
+                    <span class="rounded-lg bg-slate-100 px-2 py-1 font-mono text-xs font-bold text-slate-600">GET /hitung-ipk/{ipk1}/{ipk2}</span>
                     <span class="font-mono text-[11px] font-semibold text-[#14539a]">akademik.hitung-ipk</span>
                 </div>
                 <h3 class="mt-4 font-bold text-slate-900">Kalkulator IPK</h3>

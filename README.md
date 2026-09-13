@@ -32,7 +32,7 @@ Buka `http://127.0.0.1:8000`. Basis data tidak diperlukan untuk sandbox ini
 | 1 | GET | `/` | `home` | — |
 | 2 | GET | `/mahasiswa/{nrp}` | `mahasiswa.profil` | Wajib, regex `^[0-9]{10}$` |
 | 3 | GET | `/agent/{tema?}` | `agent.ide` | Opsional, default `General Assistant Agent` |
-| 4 | GET | `/hitung-ipk/{ip1}/{ip2}` | `akademik.hitung-ipk` | Wajib, rentang `0.00 - 4.00` |
+| 4 | GET | `/hitung-ipk/{ipk1}/{ipk2}` | `akademik.hitung-ipk` | Wajib, rentang `0.00 - 4.00` |
 | 5 | GET | `/dashboard` | `dashboard.index` | Redirect ke `dashboard.ringkasan` |
 | 6 | GET | `/dashboard/ringkasan` | `dashboard.ringkasan` | Route group prefix |
 | 7 | GET | `/dashboard/riwayat-studi` | `dashboard.riwayat-studi` | Route group prefix |

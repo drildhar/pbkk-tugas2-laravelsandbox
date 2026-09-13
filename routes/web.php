@@ -50,7 +50,7 @@ Route::get('/', function () {
  *
  * GET /mahasiswa/{nrp}  →  route('mahasiswa.profil', ['nrp' => $nrp])
  *
- * Tantangan 1: parameter {nrp} dikunci dengan regex `^[0-9]{10}$` sehingga
+ * Tantangan 1: parameter {nrp} dikunci dengan regex `[0-9]{10}` sehingga
  * hanya menerima tepat 10 digit angka (format NRP ITS). Permintaan yang tidak
  * sesuai pola otomatis dijawab HTTP 404 oleh router sebelum closure dijalankan.
  *
@@ -64,7 +64,7 @@ Route::get('/mahasiswa/{nrp}', function (string $nrp) {
         'nrp' => $nrp,
         'student' => $student,
     ], $student === null ? 404 : 200);
-})->where('nrp', '^[0-9]{10}$')->name('mahasiswa.profil');
+})->where('nrp', '[0-9]{10}')->name('mahasiswa.profil');
 
 /**
  * Rute 3 — Eksplorasi Ide Platform Agentic AI.
@@ -93,7 +93,7 @@ Route::get('/agent/{tema?}', function (?string $tema = AcademicSandbox::DEFAULT_
 */
 
 /**
- * GET /hitung-ipk/{ip1}/{ip2}  →  route('akademik.hitung-ipk', [...])
+ * GET /hitung-ipk/{ipk1}/{ipk2}  →  route('akademik.hitung-ipk', [...])
  *
  * Menerima dua parameter IP semester (bilangan bulat maupun desimal).
  *
@@ -104,8 +104,8 @@ Route::get('/agent/{tema?}', function (?string $tema = AcademicSandbox::DEFAULT_
  *  - Apabila tidak valid, halaman dirender ulang dengan status HTTP 422 beserta
  *    pesan kesalahan yang spesifik per kolom.
  */
-Route::get('/hitung-ipk/{ip1}/{ip2}', function (string $ip1, string $ip2) {
-    $input = ['ip1' => $ip1, 'ip2' => $ip2];
+Route::get('/hitung-ipk/{ipk1}/{ipk2}', function (string $ipk1, string $ipk2) {
+    $input = ['ipk1' => $ipk1, 'ipk2' => $ipk2];
     $nilai = [];
     $errors = [];
 
@@ -134,15 +134,15 @@ Route::get('/hitung-ipk/{ip1}/{ip2}', function (string $ip1, string $ip2) {
         ], 422);
     }
 
-    $totalBobot = round($nilai['ip1'] + $nilai['ip2'], 2);
+    $totalBobot = round($nilai['ipk1'] + $nilai['ipk2'], 2);
     $ipk = round($totalBobot / 2, 2);
 
     return view('kalkulator', [
         'input' => $input,
         'errors' => [],
         'hasil' => [
-            'ip1' => $nilai['ip1'],
-            'ip2' => $nilai['ip2'],
+            'ipk1' => $nilai['ipk1'],
+            'ipk2' => $nilai['ipk2'],
             'totalBobot' => $totalBobot,
             'ipk' => $ipk,
             'predikat' => AcademicSandbox::predicate($ipk),

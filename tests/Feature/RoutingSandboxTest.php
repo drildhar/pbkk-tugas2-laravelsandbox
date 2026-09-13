@@ -80,7 +80,7 @@ class RoutingSandboxTest extends TestCase
 
     public function test_kalkulator_ipk_menghitung_total_bobot_dan_predikat(): void
     {
-        $this->get(route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']))
+        $this->get(route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']))
             ->assertOk()
             ->assertSee('7.35')
             ->assertSee('3.68')
@@ -89,21 +89,21 @@ class RoutingSandboxTest extends TestCase
 
     public function test_kalkulator_ipk_menolak_nilai_di_luar_rentang(): void
     {
-        $this->get(route('akademik.hitung-ipk', ['ip1' => '4.50', 'ip2' => '3.20']))
+        $this->get(route('akademik.hitung-ipk', ['ipk1' => '4.50', 'ipk2' => '3.20']))
             ->assertStatus(422)
             ->assertSee('tidak valid');
     }
 
     public function test_kalkulator_ipk_menolak_input_non_numerik(): void
     {
-        $this->get(route('akademik.hitung-ipk', ['ip1' => 'abc', 'ip2' => '3.20']))
+        $this->get(route('akademik.hitung-ipk', ['ipk1' => 'abc', 'ipk2' => '3.20']))
             ->assertStatus(422)
             ->assertSee('tidak valid');
     }
 
     public function test_kalkulator_ipk_menolak_input_negatif(): void
     {
-        $this->get(route('akademik.hitung-ipk', ['ip1' => '-1', 'ip2' => '2.50']))
+        $this->get(route('akademik.hitung-ipk', ['ipk1' => '-1', 'ipk2' => '2.50']))
             ->assertStatus(422)
             ->assertSee('tidak valid');
     }

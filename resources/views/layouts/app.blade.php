@@ -82,7 +82,7 @@
                 <a href="{{ route('mahasiswa.profil', ['nrp' => $student['nrp'] ?? '5025241097']) }}"
                    class="{{ $navItem(request()->routeIs('mahasiswa.profil')) }}">Profil</a>
                 <a href="{{ route('agent.ide') }}" class="{{ $navItem(request()->routeIs('agent.ide')) }}">Agentic AI</a>
-                <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+                <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                    class="{{ $navItem(request()->routeIs('akademik.hitung-ipk')) }}">Kalkulator IPK</a>
                 <a href="{{ route('dashboard.ringkasan') }}" class="{{ $navItem(request()->routeIs('dashboard.*')) }}">Dashboard</a>
             </nav>
@@ -102,7 +102,7 @@
                 <a href="{{ route('mahasiswa.profil', ['nrp' => $student['nrp'] ?? '5025241097']) }}"
                    class="{{ $navItem(request()->routeIs('mahasiswa.profil')) }}">Profil Mahasiswa</a>
                 <a href="{{ route('agent.ide') }}" class="{{ $navItem(request()->routeIs('agent.ide')) }}">Ide Agentic AI</a>
-                <a href="{{ route('akademik.hitung-ipk', ['ip1' => '3.75', 'ip2' => '3.60']) }}"
+                <a href="{{ route('akademik.hitung-ipk', ['ipk1' => '3.75', 'ipk2' => '3.60']) }}"
                    class="{{ $navItem(request()->routeIs('akademik.hitung-ipk')) }}">Kalkulator IPK</a>
                 <a href="{{ route('dashboard.ringkasan') }}" class="{{ $navItem(request()->routeIs('dashboard.*')) }}">Dashboard</a>
             </div>
